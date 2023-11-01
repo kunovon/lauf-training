@@ -1,27 +1,44 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strconv"
 )
 
 func main() {
-	//var tage int
+
+	var tage int
 	var kilometer int
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("\033[H\033[2J")
-	fmt.Print("Bitte geben Sie die gewünschte Kilometerzahl ein: ")
-	userInput, _ := reader.ReadString('\n')
+	var steigerung float32
 
-	kilometer, err := strconv.Atoi(userInput)
-	if err != nil {
-		fmt.Println("Error during conversion")
-		return
+	// Bildschirm löschen
+	fmt.Print("\033[H\033[2J")
+
+	// Eingabe
+	fmt.Print("Wieviele Killometer möchten Sie laufen ? ")
+	fmt.Scan(&kilometer)
+	fmt.Println("----------------------------------------")
+	fmt.Println("")
+	// Darstellung
+	//fmt.Print("\033[H\033[2J")
+
+	// Leistungssteigerung
+	for i := 1; i <= kilometer*2; i++ {
+		x := float32(i)
+		x = x*0.5 + 0.5
+		steigerung = 1 / x * 100
+		if i%2 == 0 {
+			fmt.Println("Tag:", i, "REGENERATION")
+		} else {
+
+			fmt.Print("Tag: ", i, " Kilometer: ", x, " Steigerung: ")
+			fmt.Printf("%.1f", steigerung)
+			fmt.Println("")
+		}
+
 	}
-
-	//userInput = kilometer
-	fmt.Print("\033[H\033[2J")
-	fmt.Println("Ihre Eingabe ist:", kilometer)
+	// Zusammenfassung
+	tage = kilometer * 2
+	fmt.Println("")
+	fmt.Println("Für", kilometer, "Kilometer, benötigen Sie:", tage, "Tage")
+	fmt.Println("")
 }
