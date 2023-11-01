@@ -12,6 +12,11 @@ func main() {
 
 	// Bildschirm löschen
 	fmt.Print("\033[H\033[2J")
+	laufplan(tage, kilometer, steigerung)
+
+}
+
+func laufplan(tage, kilometer int, steigerung float32) {
 
 	// Eingabe
 	fmt.Print("Wieviele Killometer möchten Sie laufen ? ")
@@ -41,4 +46,5 @@ func main() {
 	fmt.Println("")
 	fmt.Println("Für", kilometer, "Kilometer, benötigen Sie:", tage, "Tage")
 	fmt.Println("")
+
 }
