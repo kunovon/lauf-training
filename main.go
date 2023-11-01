@@ -37,6 +37,7 @@ func laufplan(tage, kilometer int, steigerung float32) {
 
 			fmt.Print("Tag: ", i, " Kilometer: ", x, " Steigerung: ")
 			fmt.Printf("%.1f", steigerung)
+			fmt.Print("%")
 			fmt.Println("")
 		}
 
