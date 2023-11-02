@@ -23,8 +23,6 @@ func laufplan(tage, kilometer int, steigerung float32) {
 	fmt.Scan(&kilometer)
 	fmt.Println("----------------------------------------")
 	fmt.Println("")
-	// Darstellung
-	//fmt.Print("\033[H\033[2J")
 
 	// Leistungssteigerung
 	for i := 1; i <= kilometer*2; i++ {
