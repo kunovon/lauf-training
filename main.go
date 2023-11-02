@@ -4,11 +4,12 @@ import (
 	"fmt"
 )
 
-func main() {
+// Variablen
+var tage int
+var kilometer int
+var steigerung float32
 
-	var tage int
-	var kilometer int
-	var steigerung float32
+func main() {
 
 	// Bildschirm löschen
 	fmt.Print("\033[H\033[2J")
@@ -23,8 +24,9 @@ func laufplan(tage, kilometer int, steigerung float32) {
 	fmt.Scan(&kilometer)
 	fmt.Println("----------------------------------------")
 	fmt.Println("")
-	// Darstellung
-	//fmt.Print("\033[H\033[2J")
+}
+
+func darstellung(kilometer int) {
 
 	// Leistungssteigerung
 	for i := 1; i <= kilometer*2; i++ {
@@ -42,6 +44,10 @@ func laufplan(tage, kilometer int, steigerung float32) {
 		}
 
 	}
+	zusammenfassung(kilometer)
+
+}
+func zusammenfassung(kilometer int) {
 	// Zusammenfassung
 	tage = kilometer * 2
 	fmt.Println("")
