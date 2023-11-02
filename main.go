@@ -2,6 +2,9 @@ package main
 
 import (
 	"fmt"
+	"log"
+
+	"github.com/eiannone/keyboard"
 )
 
 // Variablen
@@ -12,7 +15,18 @@ var steigerung float32
 func main() {
 	// Bildschirm löschen
 	fmt.Print("\033[H\033[2J")
-	eingabe(kilometer)
+
+	nocheinmal := true
+
+	for nocheinmal {
+		eingabe(kilometer)
+		nocheinmal = GetYesOrNo("Möchten Sie noch einmal? (j/n)?\n")
+
+	}
+
+	fmt.Println("")
+	fmt.Println("Auf Wiedersehen!")
+	fmt.Println("")
 }
 
 func eingabe(kilometer int) {
@@ -49,4 +63,28 @@ func zusammenfassung(kilometer int) {
 	fmt.Println("Für", kilometer, "Kilometer, benötigen Sie:", tage, "Tage")
 	fmt.Println("========================================")
 	fmt.Println("")
+}
+
+// GetYesOrNo erlaubt die erneute Eingabe
+func GetYesOrNo(q string) bool {
+	err := keyboard.Open()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer func() {
+		_ = keyboard.Close()
+	}()
+
+	for {
+		fmt.Println(q)
+		char, _, err := keyboard.GetSingleKey()
+		if err != nil {
+			log.Fatal(err)
+		}
+		if char == 'n' || char == 'N' {
+			return false
+		}
+		return true
+	}
 }
