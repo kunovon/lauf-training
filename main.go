@@ -13,8 +13,6 @@ var kilometer int
 var steigerung float32
 
 func main() {
-
-func main() {
 	// Bildschirm löschen
 	fmt.Print("\033[H\033[2J")
 
@@ -37,9 +35,8 @@ func eingabe(kilometer int) {
 	fmt.Scan(&kilometer)
 	fmt.Println("----------------------------------------")
 	fmt.Println("")
+	darstellung(kilometer)
 }
-
-func darstellung(kilometer int) {
 
 func darstellung(kilometer int) {
 	// Leistungssteigerung
@@ -57,8 +54,8 @@ func darstellung(kilometer int) {
 		}
 	}
 	zusammenfassung(kilometer)
-
 }
+
 func zusammenfassung(kilometer int) {
 	// Zusammenfassung
 	tage = kilometer * 2
