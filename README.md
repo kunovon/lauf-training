@@ -1,3 +1,3 @@
-# lauf-training
+# lauf-training-fuer-anfaenger
 
 Erstes Go Projekt
