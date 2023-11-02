@@ -45,7 +45,8 @@ func darstellung(kilometer int) {
 func zusammenfassung(kilometer int) {
 	// Zusammenfassung
 	tage = kilometer * 2
-	fmt.Println("")
+	fmt.Println("----------------------------------------")
 	fmt.Println("Für", kilometer, "Kilometer, benötigen Sie:", tage, "Tage")
+	fmt.Println("========================================")
 	fmt.Println("")
 }
