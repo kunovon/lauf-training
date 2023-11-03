@@ -1,5 +1,4 @@
-# lauf-training-fuer-anfaenger
-
+# lauf-training
 Erstes Go Projekt
 
 Die Ausgabe entspricht nicht der Trainingswirklichkeit!
