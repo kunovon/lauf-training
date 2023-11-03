@@ -11,6 +11,7 @@ import (
 var tage int
 var kilometer int
 var steigerung float32
+var x float32
 
 func main() {
 	// Bildschirm löschen
@@ -41,16 +42,13 @@ func eingabe(kilometer int) {
 func darstellung(kilometer int) {
 	// Leistungssteigerung
 	for i := 1; i <= kilometer*2; i++ {
-		x := float32(i)
+		x = float32(i)
 		x = x*0.5 + 0.5
 		steigerung = 1 / x * 100
 		if i%2 == 0 {
-			fmt.Println("Tag:", i, "REGENERATION")
+			fmt.Printf("Tag: %d REGENERATION\n", i)
 		} else {
-			fmt.Print("Tag: ", i, " Kilometer: ", x, " Steigerung: ")
-			fmt.Printf("%.1f", steigerung)
-			fmt.Print("%")
-			fmt.Println("")
+			fmt.Printf("Tag: %d Kilometer: %.0f  Steigerung %.1f %%\n", i, x, steigerung)
 		}
 	}
 	zusammenfassung(kilometer)
@@ -59,10 +57,9 @@ func darstellung(kilometer int) {
 func zusammenfassung(kilometer int) {
 	// Zusammenfassung
 	tage = kilometer * 2
-	fmt.Println("----------------------------------------")
-	fmt.Println("Für", kilometer, "Kilometer, benötigen Sie:", tage, "Tage")
-	fmt.Println("========================================")
-	fmt.Println("")
+	fmt.Println("-----------------------------------------")
+	fmt.Printf("Für %d Kilometer, benötigen Sie: %d Tage!\n", kilometer, tage)
+	fmt.Printf("=========================================\n\n")
 }
 
 // GetYesOrNo erlaubt die erneute Eingabe
