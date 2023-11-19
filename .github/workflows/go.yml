@@ -25,7 +25,7 @@ jobs:
       run: go build -o laufen main.go
 
     - name: Test
-     runs:
-       using: 'docker'
-       image: 'Dockerfile'
+      runs:
+        using: 'docker'
+        image: 'Dockerfile'
       
