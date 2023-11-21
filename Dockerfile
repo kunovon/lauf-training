@@ -4,10 +4,10 @@ RUN addgroup -g 1001 app
 RUN adduser app -u 1001 -D -G app /home/app
 
 FROM golang:1.21 as builder
-WORKDIR /
+WORKDIR /home/app/
 COPY --from=root-certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -mod=vendor -o ./laufen main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -mod=vendor -o ./laufen /home/app/main.go
 
 FROM scratch as final
 COPY --from=root-certs /etc/passwd /etc/passwd
